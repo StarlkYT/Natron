@@ -15,7 +15,7 @@ var account = new Account("Starlk");
 
 var path = Path.Combine(Directory.GetCurrentDirectory(), "account.json");
 
-var configuration = ConfigurationBuilder<Account>.Configure(account)
+var configuration = Natron<Account>.Configure(account)
     .WithContainer(new FileContainer(path))
     .WithSerializer(new JsonSerializer())
     .Build();

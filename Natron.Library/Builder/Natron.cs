@@ -8,21 +8,21 @@ namespace Natron.Library.Builder;
 /// Builds an instance of <see cref="Configuration{T}"/>.
 /// </summary>
 /// <typeparam name="T">The type of the instance to use.</typeparam>
-public sealed class ConfigurationBuilder<T> : IContainerSelectionStage<T>, ISerializerSelectionStage<T>, IBuilderInitializerStage<T>
+public sealed class Natron<T> : IContainerSelectionStage<T>, ISerializerSelectionStage<T>, IBuilderInitializerStage<T>
 {
     private IContainer? natronContainer;
     private ISerializer? natronSerializer;
 
     private readonly T natronInstance;
 
-    private ConfigurationBuilder(T instance)
+    private Natron(T instance)
     {
         natronInstance = instance;
     }
 
     public static IContainerSelectionStage<T> Configure(T instance)
     {
-        return new ConfigurationBuilder<T>(instance);
+        return new Natron<T>(instance);
     }
 
     public ISerializerSelectionStage<T> WithContainer(IContainer container)
