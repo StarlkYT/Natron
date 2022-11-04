@@ -3,7 +3,7 @@ using Natron.Library.Serializers;
 
 namespace Natron.Library;
 
-public sealed class Configuration<T>
+public sealed class Configuration<T> where T : notnull
 {
     public T Instance { get; }
 

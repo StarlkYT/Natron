@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Natron.Library", "Natron.Library\Natron.Library.csproj", "{92773E4D-850F-43E7-917E-62670B5C9651}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Natron.Tests", "Natron.Tests\Natron.Tests.csproj", "{4CCF3CDD-C3F6-4B02-B8CA-70C103A59EFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{92773E4D-850F-43E7-917E-62670B5C9651}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92773E4D-850F-43E7-917E-62670B5C9651}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92773E4D-850F-43E7-917E-62670B5C9651}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CCF3CDD-C3F6-4B02-B8CA-70C103A59EFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CCF3CDD-C3F6-4B02-B8CA-70C103A59EFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CCF3CDD-C3F6-4B02-B8CA-70C103A59EFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CCF3CDD-C3F6-4B02-B8CA-70C103A59EFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
