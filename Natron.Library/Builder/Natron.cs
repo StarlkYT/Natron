@@ -9,6 +9,7 @@ namespace Natron.Library.Builder;
 /// </summary>
 /// <typeparam name="T">The type of the instance to use.</typeparam>
 public sealed class Natron<T> : IContainerSelectionStage<T>, ISerializerSelectionStage<T>, IBuilderInitializerStage<T>
+    where T : notnull
 {
     private IContainer? natronContainer;
     private ISerializer? natronSerializer;
