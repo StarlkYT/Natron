@@ -7,5 +7,5 @@ public abstract class SerializerBase : ISerializer
     {
     }
 
-    public abstract Task<string> Serialize<T>(T instance);
+    public abstract Task<string> Serialize<T>(T instance) where T : notnull;
 }
