@@ -1,6 +1,6 @@
 # Quick Start
 Natron does not have a NuGet package \*yet\*\
-Clone and reference the class library project inside your project.
+Clone and reference the class library project (Natron.Library).
 
 ### Usage Example
 Natron provides simple and straight-forward usage API.
