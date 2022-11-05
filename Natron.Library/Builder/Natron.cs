@@ -11,8 +11,8 @@ namespace Natron.Library.Builder;
 public sealed class Natron<T> : IContainerSelectionStage<T>, ISerializerSelectionStage<T>, IBuilderInitializerStage<T>
     where T : notnull
 {
-    private IContainer? natronContainer;
-    private ISerializer? natronSerializer;
+    private ContainerBase[]? natronContainers;
+    private SerializerBase[]? natronSerializers;
 
     private readonly T natronInstance;
 
@@ -26,23 +26,23 @@ public sealed class Natron<T> : IContainerSelectionStage<T>, ISerializerSelectio
         return new Natron<T>(instance);
     }
 
-    public ISerializerSelectionStage<T> WithContainer(IContainer container)
+    public ISerializerSelectionStage<T> UseContainers(Func<ContainerBase[]> containers)
     {
-        natronContainer = container;
+        natronContainers = containers();
         return this;
     }
 
-    public IBuilderInitializerStage<T> WithSerializer(ISerializer serializer)
+    public IBuilderInitializerStage<T> UseSerializers(Func<SerializerBase[]> serializers)
     {
-        natronSerializer = serializer;
+        natronSerializers = serializers();
         return this;
     }
 
     public Configuration<T> Build()
     {
-        ArgumentNullException.ThrowIfNull(natronContainer);
-        ArgumentNullException.ThrowIfNull(natronSerializer);
+        ArgumentNullException.ThrowIfNull(natronContainers);
+        ArgumentNullException.ThrowIfNull(natronSerializers);
 
-        return new Configuration<T>(natronInstance, natronContainer, natronSerializer);
+        return new Configuration<T>(natronInstance, natronContainers, natronSerializers);
     }
 }

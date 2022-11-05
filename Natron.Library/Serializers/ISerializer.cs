@@ -1,6 +1,8 @@
 namespace Natron.Library.Serializers;
 
-public interface ISerializer
+internal interface ISerializer
 {
+    public string Extension { get; }
+
     public Task<string> Serialize<T>(T instance) where T : notnull;
 }

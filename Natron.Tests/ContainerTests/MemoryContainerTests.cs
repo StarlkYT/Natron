@@ -10,7 +10,7 @@ public sealed class MemoryContainerTests
         var container = new MemoryContainer(new MemoryStream());
 
         // Act
-        await container.Contain(await serializer.Serialize(nameof(MemoryContainerTests)));
+        await container.Contain(serializer, await serializer.Serialize(nameof(MemoryContainerTests)));
         container.Stream.Position = 0;
 
         // Assert
@@ -23,11 +23,11 @@ public sealed class MemoryContainerTests
     public async Task MemoryContainer_Outputs_CorrectYamlFile()
     {
         // Arrange
-        var serializer = new JsonSerializer();
+        var serializer = new YamlSerializer();
         var container = new MemoryContainer(new MemoryStream());
 
         // Act
-        await container.Contain(await serializer.Serialize(nameof(MemoryContainerTests)));
+        await container.Contain(serializer, await serializer.Serialize(nameof(MemoryContainerTests)));
         container.Stream.Position = 0;
 
         // Assert

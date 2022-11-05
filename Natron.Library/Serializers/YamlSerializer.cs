@@ -4,6 +4,8 @@ namespace Natron.Library.Serializers;
 
 public sealed class YamlSerializer : SerializerBase
 {
+    public override string Extension => "yaml";
+
     public YamlDotNet.Serialization.ISerializer? Serializer { get; set; }
 
     public YamlSerializer(YamlDotNet.Serialization.ISerializer serializer)

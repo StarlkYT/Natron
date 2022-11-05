@@ -2,9 +2,9 @@
 Natron does not have a NuGet package \*yet\*\
 Clone and reference the class library project inside your project.
 
-## Usage Example
+### Usage Example
 Natron provides simple and straight-forward usage API.
-More advanced features are cooming soon.
+More advanced features are coming soon.
 
 ```cs
 using Natron.Library.Builder;
@@ -13,11 +13,17 @@ using Natron.Library.Serializers;
 
 var account = new Account("Starlk");
 
-var path = Path.Combine(Directory.GetCurrentDirectory(), "account.json");
+var path = Path.Combine(Directory.GetCurrentDirectory(), "account");
 
 var configuration = Natron<Account>.Configure(account)
-    .WithContainer(new FileContainer(path))
-    .WithSerializer(new JsonSerializer())
+    .UseContainers(() => new ContainerBase[]
+    {
+        new FileContainer(path)
+    })
+    .UseSerializers(() => new SerializerBase[]
+    {
+        new JsonSerializer(),
+    })
     .Build();
 
 account.Name = "John";
@@ -35,8 +41,13 @@ internal sealed class Account
 }
 ```
 
-This sample serializes saves the account class instance into a JSON file.
+This sample serializes saves the account class instance into a JSON file ("account.json").
 
 ```json
 {"Name":"John"}
 ```
+
+### Extensibility
+Natron allows for custom implementations for containers and serializers. 
+To create your own container/serializer inherit from their base class then the compiler will guide you.\
+See the `FileContainer` or the `JsonSerializer` for examples.

@@ -7,23 +7,28 @@ public sealed class Configuration<T> where T : notnull
 {
     public T Instance { get; }
 
-    public IContainer Container { get; }
+    public ContainerBase[] Containers { get; }
 
-    public ISerializer Serializer { get; }
+    public SerializerBase[] Serializers { get; }
 
-    internal Configuration(T instance, IContainer container, ISerializer serializer)
+    internal Configuration(T instance, ContainerBase[] containers, SerializerBase[] serializers)
     {
         Instance = instance;
-        Container = container;
-        Serializer = serializer;
+        Containers = containers;
+        Serializers = serializers;
     }
 
     /// <summary>
-    /// Serializes and puts all the data in the <see cref="Container"/>. 
+    /// Serializes and puts all the data in the <see cref="Containers"/>.
     /// </summary>
     public async Task PersistAsync()
     {
-        var contents = await Serializer.Serialize(Instance);
-        await Container.Contain(contents);
+        foreach (var container in Containers)
+        {
+            foreach (var serializer in Serializers)
+            {
+                await container.Contain(serializer, await serializer.Serialize(Instance));
+            }
+        }
     }
 }

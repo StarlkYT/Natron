@@ -1,9 +1,11 @@
+using Natron.Library.Serializers;
+
 namespace Natron.Library.Containers;
 
 /// <summary>
-/// The base class for containers that are used for persistence.
+/// The base class for all containers that are used for data persistence.
 /// </summary>
 public abstract class ContainerBase : IContainer
 {
-    public abstract Task Contain(string contents);
+    public abstract Task Contain(SerializerBase serializer, string contents);
 }

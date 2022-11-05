@@ -1,6 +1,8 @@
+using Natron.Library.Serializers;
+
 namespace Natron.Library.Containers;
 
-public interface IContainer
+internal interface IContainer
 {
-    public Task Contain(string contents);
+    public Task Contain(SerializerBase serializer, string contents);
 }
