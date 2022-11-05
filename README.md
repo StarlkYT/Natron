@@ -1,6 +1,6 @@
 # Quick Start
 Natron does not have a NuGet package \*yet\*\
-Clone and reference the class library project (Natron.Library).
+Clone and reference the class library project ("Natron.Library").
 
 ### Usage Example
 Natron provides simple and straight-forward usage API.
@@ -41,7 +41,7 @@ internal sealed class Account
 }
 ```
 
-This sample serializes saves the account class instance into a JSON file ("account.json").
+This sample serializes and saves the account class instance into a JSON file ("account.json").
 
 ```json
 {"Name":"John"}
@@ -49,5 +49,5 @@ This sample serializes saves the account class instance into a JSON file ("accou
 
 ### Extensibility
 Natron allows for custom implementations for containers and serializers. 
-To create your own container/serializer inherit from their base class then the compiler will guide you.\
+To create your own container/serializer inherit from their base class.\
 See the `FileContainer` or the `JsonSerializer` for examples.
