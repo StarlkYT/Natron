@@ -12,6 +12,6 @@ public sealed class YamlSerializerTests
         var yaml = await new YamlSerializer().Serialize(instance);
 
         // Assert
-        Assert.Equal($"{nameof(YamlSerializerTests)}\r\n", yaml);
+        Assert.Equal($"{instance}\r\n", yaml);
     }
 }

@@ -22,7 +22,7 @@ var configuration = Natron<Account>.Configure(account)
     })
     .UseSerializers(() => new SerializerBase[]
     {
-        new JsonSerializer(),
+        new JsonSerializer()
     })
     .Build();
 

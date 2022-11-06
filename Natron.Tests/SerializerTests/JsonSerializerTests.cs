@@ -12,6 +12,6 @@ public sealed class JsonSerializerTests
         var json = await new JsonSerializer().Serialize(instance);
 
         // Assert
-        Assert.Equal($"\"{nameof(JsonSerializerTests)}\"", json);
+        Assert.Equal($"\"{instance}\"", json);
     }
 }
