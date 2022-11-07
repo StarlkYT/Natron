@@ -4,6 +4,12 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>Natron</Title>
+        <Authors />
+        <Description>An extermely simple to use data persistance library.</Description>
+        <PackageProjectUrl>https://github.com/StarlkYT/Natron/tree/master</PackageProjectUrl>
+        <PackageLicenseUrl>LGPL</PackageLicenseUrl>
     </PropertyGroup>
 
     <ItemGroup>
